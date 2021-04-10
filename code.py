@@ -58,3 +58,22 @@ def findMin(nums):  # 考虑了重复元素的二分查找
 nums = [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 print(search_index(nums, 7))
 print(findMin(nums))
+
+'''
+263.简单
+给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false 。
+丑数 就是只包含质因数 2、3 和/或 5 的正整数。
+'''
+
+
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n <= 0:
+            return False
+
+        factors = [2, 3, 5]
+        for factor in factors:
+            while n % factor == 0:
+                n //= factor
+        
+        return n == 1
